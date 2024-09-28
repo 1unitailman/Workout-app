@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import Layout from '../../layout/Layout'
+
 import { useForm } from 'react-hook-form'
 
 import Button from '../../ui/button/Button'
@@ -8,12 +9,15 @@ import Field from '../../ui/field/Field'
 import Loader from '../../ui/Loader'
 import styles from './Auth.module.scss'
 
+import { useMutation } from '@tanstack/react-query'
+import AuthService from '../../../services/auth.service'
+
 const isLoading = false 
 const isLoadingAuth = false
 
 
 const Auth = () => {
-  const [type, setType] = useState('auth')
+  const [type, setType] = useState('login')
 
 
   const {
@@ -22,12 +26,11 @@ const Auth = () => {
     formState: {errors}
   } = useForm({
     mode: 'onChange'
-
-    
   })
 
+
   const onSubmit = (data) => {
-    console.log(data)
+    mutate(data.email, data.password)
   }
 
 
@@ -35,7 +38,7 @@ const Auth = () => {
     <>
       <Layout heading='Sign in' bgImage='./auth-bg.png' />
         <div className='wrapper-inner-page'>
-          {(isLoading || isLoadingAuth ) && <Loader />}
+          {(isLoading || isLoadingAuth) && <Loader />}
           <form onSubmit={handleSubmit(onSubmit)}>
           <Field
               error={errors?.email?.message}

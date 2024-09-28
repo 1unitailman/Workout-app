@@ -6,29 +6,31 @@ import styles from './Header.module.scss'
 import { FaArrowLeft } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 
-const Header = ({ backLink = '' }) => {
+const Header = ({ backLink = '/' }) => {
 	const { pathname } = useLocation()
 	const navigate = useNavigate()
 
 	const { isAuth } = useAuth()
 
+	
+
 	return (
 		<header className={styles.header}>
-			{pathname !== '/' ? (
-				<button
+			{pathname === '/' && isAuth ? (
+				<button 
 					onClick={() => {
-						navigate(backLink)
+						navigate('/profile')
 					}}
 				>
-					<FaArrowLeft fill='#fff' fontSize={25} />
+					<CgProfile fill='#fff' fontSize={25} />
 				</button>
 			) : (
 				<button
 					onClick={() => {
-						navigate(isAuth ? '/profile' : '/auth')
+						navigate(isAuth ? backLink : '/auth')
 					}}
 				>
-					<CgProfile fill='#fff' fontSize={25} />
+					<FaArrowLeft fill='#fff' fontSize={25} />
 				</button>
 			)}
 			<Hamburger />

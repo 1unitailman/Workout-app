@@ -8,6 +8,7 @@ import styles from './Home.module.scss'
 
 import { useAuth } from "../../../hooks/useAuth"
 
+
 function Home() {
 	const {isAuth} = useAuth()
 
@@ -15,11 +16,10 @@ function Home() {
 
 	return (
 		<Layout bgImage='/public/home-bg.jpg'>
-			<Button 
-				clickHandler={() => navigate(!isAuth ? '/new-workout' : '/auth')}>
-					{isAuth ? 'New' : 'Sign in'}
+			<Button clickHandler={() => navigate(!isAuth ? '/new-workout' : '/auth')}>
+				{isAuth ? 'New' : 'Sign in'}
 			</Button>
-			<h1 className = {styles.heading}>Exercises for shoulders</h1>
+			<h1 className={styles.heading}>Exercises for all body</h1>
 		</Layout>
 	)
 }
