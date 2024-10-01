@@ -9,9 +9,6 @@ import Field from '../../ui/field/Field'
 import Loader from '../../ui/Loader'
 import styles from './Auth.module.scss'
 
-import { useMutation } from '@tanstack/react-query'
-import AuthService from '../../../services/auth.service'
-
 const isLoading = false 
 const isLoadingAuth = false
 
