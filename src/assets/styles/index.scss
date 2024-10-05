@@ -82,7 +82,7 @@ img {
 	transition: color 0.3s ease;
 
 	&:hover {
-		color: darkest($accent, 10%);
+		color: darken($accent, 10%);
 	}
 }
 
@@ -102,7 +102,9 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-// ta
+input[type='number'] {
+	-moz-appearance: textfield;
+}
 
 .error {
 	color: #8d2b3d;
@@ -142,10 +144,10 @@ input::-webkit-inner-spin-button {
 
 	&__option {
 		&--is-focused {
-			background-color: darkest($dark-accent, 7%) !important;
+			background-color: darken($dark-accent, 7%) !important;
 		}
 		&--is-selected {
-			background-color: darkest($dark-accent, 8%) !important;
+			background-color: darken($dark-accent, 8%) !important;
 		}
 	}
 
@@ -166,7 +168,7 @@ input::-webkit-inner-spin-button {
 
 	&__multi-value {
 		border-radius: 6px !important;
-		background-color: lightest($dark-accent, 10%) !important;
+		background-color: lighten($dark-accent, 10%) !important;
 
 		&__label {
 			color: $white !important;
@@ -183,36 +185,3 @@ input::-webkit-inner-spin-button {
 	}
 }
 
-.dark-link {
-	text-align: right;
-	width: 100%;
-	display: block;
-	margin-bottom: 0.5rem;
-	text-decoration: none;
-	color: $dark-accent;
-	transition: color 0.3s ease;
-
-	&:hover {
-		color: darken($accent, 10%);
-	}
-}
-
-.wrapper-inner-page {
-	padding: 40px 30px;
-	text-align: center;
-	max-width: 560px;
-	width: 100%;
-	margin: 0 auto;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-
-/* Firefox */
-input[type='number'] {
-	-moz-appearance: textfield;
-}
